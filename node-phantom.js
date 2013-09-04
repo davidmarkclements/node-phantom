@@ -55,9 +55,8 @@ module.exports={
 					window.socket = socket;\n\
 				};\n\
 			</script></head><body></body></html>');
-		}).listen();
-		
-		var io=socketio.listen(server,{'log level':1});
+		}).listen(function () {
+				var io=socketio.listen(server,{'log level':1});
 
 		var port=server.address().port;
 		spawnPhantom(port,function(err,phantom){
@@ -219,5 +218,9 @@ module.exports={
 				}
 			});
 		});
-	}
+
+			
+		});
+		
+		}
 };
